@@ -1,8 +1,6 @@
 import { Card } from 'react-bootstrap';
 
 function Post({ post }) {
-    console.log("SINGLE", post);
-
     return (
         <Card className="shadow mb-4 bg-white rounded">
             <Card.Header># {post.id}</Card.Header>

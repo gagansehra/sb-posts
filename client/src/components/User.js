@@ -2,11 +2,7 @@ import axios from "axios"
 
 function User({ user }) {
     function followUser(id) {
-        axios.post(`http://localhost/Learning/Laravel/sb-posts/server/api/users/${id}/follow`, {}, {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
-            }
-        })
+        axios.post(`/users/${id}/follow`, {})
         .then(response => window.location.reload());
     }
 

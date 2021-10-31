@@ -6,11 +6,7 @@ function PostContainer() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost/Learning/Laravel/sb-posts/server/api/users?page=1&limit=4", {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
-            }
-        })
+        axios.get("/users?page=1&limit=4")
         .then(response => response.data)
         .then(response => setUsers(response.data.users));
     }, []);

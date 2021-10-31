@@ -4,6 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
+
+// this will intercept all the requests and will attach a token and base url with them
+axios.interceptors.request.use((req) => {
+  req.url = "http://localhost/Learning/Laravel/sb-posts/server/api" + req.url;
+  req.headers = {
+    Authorization: "Bearer " + localStorage.getItem("token")
+  }
+  return req;
+});
 
 ReactDOM.render(
   <BrowserRouter>

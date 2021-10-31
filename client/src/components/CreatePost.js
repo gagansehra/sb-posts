@@ -9,12 +9,8 @@ function CreatePost() {
     function create(event) {
         event.preventDefault();
 
-        axios.post("http://localhost/Learning/Laravel/sb-posts/server/api/posts", {
+        axios.post("/posts", {
             content
-        }, {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
-            }
         })
         .then(response => window.location = "/posts")
         .catch(exception => setError(exception.response.data.message));

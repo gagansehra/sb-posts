@@ -10,7 +10,7 @@ function LoginForm() {
     function login(event) {
         event.preventDefault();
 
-        axios.post("http://localhost/Learning/Laravel/sb-posts/server/api/auth/login", {
+        axios.post("/auth/login", {
             email, password
         })
         .then(response => response.data)

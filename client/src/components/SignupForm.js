@@ -11,7 +11,7 @@ function SignupForm() {
     function signup(event) {
         event.preventDefault();
 
-        axios.post("http://localhost/Learning/Laravel/sb-posts/server/api/auth/signup", {
+        axios.post("/auth/signup", {
             name, email, password
         })
         .then(response => window.location = "/login")

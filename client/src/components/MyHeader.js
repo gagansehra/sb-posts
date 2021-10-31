@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 
 function MyHeader() {
     function logout() {
-        axios.delete("http://localhost/Learning/Laravel/sb-posts/server/api/auth/logout", {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token")
-            }
-        })
+        axios.delete("/auth/logout")
         .then(response => {
             localStorage.clear();
             window.location = '/login'

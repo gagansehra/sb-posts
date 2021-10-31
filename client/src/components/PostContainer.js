@@ -6,11 +6,7 @@ function PostContainer() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      axios.get("http://localhost/Learning/Laravel/sb-posts/server/api/posts", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token")
-        }
-      })
+      axios.get("/posts")
       .then(response => response.data)
       .then(response => {
         setPosts(response.data.posts)
