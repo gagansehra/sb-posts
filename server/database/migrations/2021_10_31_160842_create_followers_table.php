@@ -10,10 +10,10 @@ class CreateFollowersTable extends Migration {
             $table->id();
 
             $table->foreignId("user_id");
-            $table->foreign("user_id")->references("users")->on("id");
+            $table->foreign("user_id")->references("id")->on("users");
 
             $table->foreignId("follower_id");
-            $table->foreign("follower_id")->references("users")->on("id");
+            $table->foreign("follower_id")->references("id")->on("users");
 
             $table->timestamps();
         });
