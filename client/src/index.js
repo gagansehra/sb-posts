@@ -8,7 +8,7 @@ import axios from 'axios';
 
 // this will intercept all the requests and will attach a token and base url with them
 axios.interceptors.request.use((req) => {
-  req.url = "http://localhost/Learning/Laravel/sb-posts/server/api" + req.url;
+  req.url = "http://3.143.37.165/sb-posts/server/api" + req.url;
   req.headers = {
     Authorization: "Bearer " + localStorage.getItem("token")
   }
@@ -16,7 +16,7 @@ axios.interceptors.request.use((req) => {
 });
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="sb-posts/client/build">
     <React.StrictMode>
       <App />
     </React.StrictMode>
