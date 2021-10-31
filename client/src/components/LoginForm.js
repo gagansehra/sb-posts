@@ -17,7 +17,7 @@ function LoginForm() {
         .then(response => { 
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));
-            window.location = "/posts";
+            window.location = "/sb-posts/cliet/posts";
         })
         .catch(exception => setError(exception.response.data.message));
     }

@@ -12,7 +12,7 @@ function CreatePost() {
         axios.post("/posts", {
             content
         })
-        .then(response => window.location = "/posts")
+        .then(response => window.location = "/sb-posts/cliet/posts")
         .catch(exception => setError(exception.response.data.message));
     }
 

@@ -14,7 +14,7 @@ function SignupForm() {
         axios.post("/auth/signup", {
             name, email, password
         })
-        .then(response => window.location = "/login")
+        .then(response => window.location = "/sb-posts/cliet/login")
         .catch(exception => setError(exception.response.data.message));
     }
 
