@@ -16,7 +16,7 @@ axios.interceptors.request.use((req) => {
 });
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/sb-posts/client/">
     <React.StrictMode>
       <App />
     </React.StrictMode>
