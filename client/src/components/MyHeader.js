@@ -8,7 +8,7 @@ function MyHeader() {
         axios.delete("/auth/logout")
         .then(response => {
             localStorage.clear();
-            window.location = '/sb-posts/cliet/login'
+            window.location = '/sb-posts/client/login'
         });
     }
 
