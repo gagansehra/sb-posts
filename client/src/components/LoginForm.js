@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
 
 function LoginForm() {
     if(localStorage.getItem("token")) {
         <Redirect to="/posts" />
     }
-    
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
