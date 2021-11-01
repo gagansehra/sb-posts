@@ -1,9 +1,11 @@
-import axios from "axios"
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate()
 
 function User({ user }) {
     function followUser(id) {
         axios.post(`/users/${id}/follow`, {})
-        .then(response => window.location.reload());
+        .then(response => navigate('/posts'));
     }
 
     return (

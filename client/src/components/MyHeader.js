@@ -2,13 +2,15 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate()
 
 function MyHeader() {
     function logout() {
         axios.delete("/auth/logout")
         .then(response => {
             localStorage.clear();
-            window.location = '/sb-posts/client/login'
+            navigate('/sb-posts/client/login')
         });
     }
 

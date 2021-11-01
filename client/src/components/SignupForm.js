@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate()
 
 function SignupForm() {
     const [email, setEmail] = useState("");
@@ -14,7 +16,7 @@ function SignupForm() {
         axios.post("/auth/signup", {
             name, email, password
         })
-        .then(response => window.location = "/sb-posts/client/login")
+        .then(response => navigate("/sb-posts/client/login"))
         .catch(exception => setError(exception.response.data.message));
     }
 

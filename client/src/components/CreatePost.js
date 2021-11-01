@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate()
 
 function CreatePost() {
     const [content, setContent] = useState("");
@@ -12,7 +14,7 @@ function CreatePost() {
         axios.post("/posts", {
             content
         })
-        .then(response => window.location = "/sb-posts/client/posts")
+        .then(response => navigate("/sb-posts/client/posts"))
         .catch(exception => setError(exception.response.data.message));
     }
 
