@@ -16,7 +16,7 @@ function MyHeader() {
         <header>
             <Navbar>
                 <Container>
-                    <Navbar.Brand href="#home">SB Posts</Navbar.Brand>
+                    <Navbar.Brand href="/posts">SB Posts</Navbar.Brand>
                     <Navbar.Toggle />
                     {localStorage.getItem('token') && (<Navbar.Collapse className="justify-content-end">
                         <Navbar.Brand className="mr-2">
