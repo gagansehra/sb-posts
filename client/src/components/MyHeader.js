@@ -1,9 +1,11 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function MyHeader() {
+    const location = useLocation();
+
     function logout() {
         axios.delete("/auth/logout")
         .then(response => {
@@ -31,7 +33,7 @@ function MyHeader() {
                     </Navbar.Collapse>)}
 
                     {!localStorage.getItem('token') && (<Navbar.Text>
-                        <Link to="/signup" className="btn btn-success text-white">Signup</Link>
+                        <Link to={location.pathname === '/login' ? '/signup' : '/login'} className="btn btn-success text-white">{location.pathname === '/login' ? 'Signup' : 'Login'}</Link>
                     </Navbar.Text>)}
                 </Container>
             </Navbar>
