@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 function CreatePost() {
+    if(!localStorage.getItem("token")) {
+        <Redirect to="/login" />
+    }
+
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
 

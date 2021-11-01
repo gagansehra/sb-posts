@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 function SignupForm() {
+    if(localStorage.getItem("token")) {
+        <Redirect to="/posts" />
+    }
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");

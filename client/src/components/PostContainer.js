@@ -1,29 +1,34 @@
 import { useEffect, useState } from "react";
 import Post from "./Post";
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 
 function PostContainer() {
-    const [posts, setPosts] = useState([]);
+  if(!localStorage.getItem("token")) {
+    <Redirect to="/login" />
+  }
 
-    useEffect(() => {
-      axios.get("/posts")
-      .then(response => response.data)
-      .then(response => {
-        setPosts(response.data.posts)
-      });
-    }, []);
+  const [posts, setPosts] = useState([]);
 
-    // fetchPosts();
+  useEffect(() => {
+    axios.get("/posts")
+    .then(response => response.data)
+    .then(response => {
+      setPosts(response.data.posts)
+    });
+  }, []);
 
-    return (
-        <div>
-            {posts.map(post => {
-                return <Post post={post} />
-            })}
+  // fetchPosts();
 
-            {!posts.length && (<h4 className="p-5">Please follow some users to see their posts </h4>)}
-        </div>
-    );
+  return (
+      <div>
+          {posts.map(post => {
+              return <Post post={post} />
+          })}
+
+          {!posts.length && (<h4 className="p-5">Please follow some users to see their posts </h4>)}
+      </div>
+  );
 }
 
 export default PostContainer;
