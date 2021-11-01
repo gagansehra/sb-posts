@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
-const navigate = useNavigate()
 
 function LoginForm() {
     const [email, setEmail] = useState("");
@@ -19,7 +17,7 @@ function LoginForm() {
         .then(response => { 
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));
-            navigate("/sb-posts/client/posts");
+            window.location = "/sb-posts/client/posts";
         })
         .catch(exception => setError(exception.response.data.message));
     }
