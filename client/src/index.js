@@ -15,6 +15,21 @@ axios.interceptors.request.use((req) => {
   return req;
 });
 
+// intercepting response and checking if there is any 401, in that case, redirecting to login
+axios.interceptors.response.use(
+  function(response) {
+    return response;
+  }, 
+  function(error) {
+    if(error.response.status === 401) {
+      localStorage.clear();
+      window.location = "/login";
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 ReactDOM.render(
   <BrowserRouter basename="/sb-posts/client/">
     <React.StrictMode>

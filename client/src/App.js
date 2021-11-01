@@ -1,4 +1,4 @@
-import { Route, Redirect, useLocation  } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import MyHeader from './components/MyHeader';
@@ -8,14 +8,6 @@ import SignupForm from './components/SignupForm';
 import CreatePost from './components/CreatePost';
 
 function App() {
-  // to redirect on desired routes
-  const location = useLocation();
-  if(!localStorage.getItem("token") && location.pathname !== '/login') {
-    return <Redirect to="/login" />
-  } else if(localStorage.getItem("token") && location.pathname !== '/posts') {
-    return <Redirect to="/posts" />
-  }
-
   return (
     <div className="App">
       <div className="header">
